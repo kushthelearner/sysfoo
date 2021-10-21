@@ -24,7 +24,8 @@ pipeline {
         sh 'mvn clean test'
       }
     }
-    parallel {
+    stage('package and publish'){
+        parallel {
         stage('package') {
             
                 agent {
@@ -55,6 +56,8 @@ pipeline {
                 }
         }
     }
+    }
+    
   }
   tools {
     maven 'Maven 3.6.3'
