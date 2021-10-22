@@ -25,6 +25,9 @@ pipeline {
       }
     }
     stage('package and publish'){
+        when {
+          branch 'master'
+        }
         parallel {
         stage('package') {
             
