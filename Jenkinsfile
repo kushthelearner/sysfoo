@@ -60,6 +60,15 @@ pipeline {
         }
     }
     }
+
+    stage('Deploy to dev') {
+      when { branch 'master' }
+      agent any
+      steps {
+        echo 'Deploying to Dev environment with Docker compose'
+        sh 'docker-compose up -d'
+      }
+    }
     
   }
   tools {
